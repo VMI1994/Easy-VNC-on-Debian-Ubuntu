@@ -31,7 +31,7 @@ echo "WorkingDirectory=/home/$USER" >> tmp
 echo "PIDFile=/home/$USER/.vnc/%H:%i.pid" >> tmp
 cat servicefilepart2.txt >> tmp
 chmod 777 tmp
-sudo mv tmp /etc/systemd/system/vncserver@.service
+sudo mv tmp /etc/systemd/system/vncserver@1.service
 
 # Copy xstartup to users home directory
 clear
@@ -46,8 +46,5 @@ sudo systemctl daemon-reload
 sudo systemctl enable vncserver@1.service
 sudo systemctl start vncserver@1.service
 sudo systemctl status vncserver@1.service
-
-clear
-echo 'VNC service is installed and running'
 
 exit
