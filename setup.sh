@@ -28,7 +28,7 @@ cat servicefilepart1.txt > tmp
 echo "User=$USER" >> tmp
 echo "Group=$USER" >> tmp
 echo "WorkingDirectory=/home/$USER" >> tmp
-echo "PIDFile=/home/$USER/.vnc/%H:%i.pid >> tmp
+echo "PIDFile=/home/$USER/.vnc/%H:%i.pid" >> tmp
 cat servicefilepart2.txt >> tmp
 chmod 777 tmp
 sudo mv tmp /etc/systemd/system/vncserver@.service
