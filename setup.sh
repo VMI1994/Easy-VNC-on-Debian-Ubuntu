@@ -14,7 +14,7 @@ echo 'Installing tightvncserver and lxde'
 echo 'If prompted for a display manager, choose lightdm'
 echo 'Press Enter to proceed'
 read junk
-sudo apt-get install sudo apt install xfce4 xfce4-goodies tightvncserver
+sudo apt install xfce4 xfce4-goodies tightvncserver
 
 # Choose password for VNC access
 clear
