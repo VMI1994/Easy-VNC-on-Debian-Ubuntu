@@ -24,14 +24,14 @@ vncpasswd
 # Create service file for systemd
 clear 
 echo 'Creating service file for VNC service'
-
-
-
-
-
-
-sudo cp servicefile /etc/systemd/system/vncserver@.service
-sudo chmod 777 /etc/systemd/system/vncserver@.service
+cat servicefilepart1.txt > tmp
+echo "User=$USER" >> tmp
+echo "Group=$USER" >> tmp
+echo "WorkingDirectory=/home/$USER" >> tmp
+echo "PIDFile=/home/$USER/.vnc/%H:%i.pid >> tmp
+cat servicefilepart2.txt >> tmp
+chmod 777 tmp
+sudo mv tmp /etc/systemd/system/vncserver@.service
 
 # Copy xstartup to users home directory
 clear
