@@ -13,7 +13,7 @@ sudo apt update && sudo apt upgrade -y
 
 # Install dependencies
 clear
-echo 'Installing tightvncserver and lxde'
+echo 'Installing tightvncserver and xfce4'
 echo 'If prompted for a display manager, choose lightdm'
 echo 'Press Enter to proceed'
 read junk
