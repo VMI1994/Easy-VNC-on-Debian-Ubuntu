@@ -24,6 +24,12 @@ vncpasswd
 # Create service file for systemd
 clear 
 echo 'Creating service file for VNC service'
+
+
+
+
+
+
 sudo cp servicefile /etc/systemd/system/vncserver@.service
 sudo chmod 777 /etc/systemd/system/vncserver@.service
 
