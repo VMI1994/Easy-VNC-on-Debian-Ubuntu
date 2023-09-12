@@ -1,6 +1,9 @@
 #!/bin/bash
 
 clear
+# Open port 5901 on ufw
+sudo ufw allow 5901/tcp
+
 # Update system before install
 echo 'Updateing system before install'
 sudo apt update && sudo apt upgrade -y
