@@ -2,10 +2,13 @@
 
 clear
 # Open port 5901 on ufw
+echo 'Open firewall port 5901'
 sudo ufw allow 5901/tcp
 
 # Update system before install
-echo 'Updateing system before install'
+echo 'Updating system before install'
+echo 'Press Enter to proceed'
+read junk
 sudo apt update && sudo apt upgrade -y
 
 # Install dependencies
