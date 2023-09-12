@@ -43,9 +43,9 @@ chmod +x ~/.vnc/xstartup
 clear
 echo 'Enabling VNC service'
 sudo systemctl daemon-reload
-sudo systemctl enable vncserver@.service
-sudo systemctl start vncserver@.service
-sudo systemctl status vncserver@.service
+sudo systemctl enable vncserver@1.service
+sudo systemctl start vncserver@1.service
+sudo systemctl status vncserver@1.service
 
 clear
 echo 'VNC service is installed and running'
