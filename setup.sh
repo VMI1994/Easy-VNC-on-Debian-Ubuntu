@@ -7,8 +7,11 @@ sudo apt update && sudo apt upgrade -y
 
 # Install dependencies
 clear
-echo 'Installing tightvncserver'
-sudo apt-get install tightvncserver autocutsel
+echo 'Installing tightvncserver and lxde'
+echo 'When prompted for a display manager, choose lightdm'
+echo 'Press Enter to proceed'
+read junk
+sudo apt-get install lxde tightvncserver autocutsel
 
 # Choose password for VNC access
 clear
