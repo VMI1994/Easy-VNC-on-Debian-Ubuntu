@@ -1,27 +1,43 @@
 #!/bin/bash
 
+clear
 # Update system before install
+echo 'Updateing system before install'
 sudo apt update && sudo apt upgrade -y
 
 # Install dependencies
+clear
+echo 'Installing tightvncserver'
 sudo apt-get install tightvncserver autocutsel
 
 # Choose password for VNC access
+clear
 echo "Choose a password to access VNC server"
 vncpasswd
 
 # Create service file for systemd
-sudo cat servicefilepart1.txt > /etc/systemd/system/vncserver@:1.service
-sudo echo "User=$USER" >> /etc/systemd/system/vncserver@:1.service
-sudo cat servicefilepart2.txt >> /etc/systemd/system/vncserver@:1.service
+clear 
+echo 'Creating service file for VNC service'
+cat servicefilepart1.txt > tmp
+echo "User=$USER" >> tmp
+cat servicefilepart2.txt >> tmp
+chmod 777 tmp
+sudo cp tmp /etc/systemd/system/vncserver@:1.service
 
 # Copy xstartup to users home directory
+clear
+echo 'Creating xstartup file'
 cp xstartup ~/.vnc/xstartup
 
 # Enable VNC service
+clear
+echo 'Enabling VNC service'
 sudo systemctl daemon-reload
-sudo systemctl enable vncserver@:<display>.service
-sudo systemctl start vncserver@:<display>.service
-sudo systemctl status vncserver@:<display>.service
+sudo systemctl enable vncserver@:1.service
+sudo systemctl start vncserver@:1.service
+sudo systemctl status vncserver@:1.service
+
+clear
+echo 'VNC service is installed and running'
 
 exit
