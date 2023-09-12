@@ -28,20 +28,21 @@ cat servicefilepart1.txt > tmp
 echo "User=$USER" >> tmp
 cat servicefilepart2.txt >> tmp
 chmod 777 tmp
-sudo cp tmp /etc/systemd/system/vncserver@:1.service
+sudo cp servicefile /etc/systemd/system/vncserver@.service
 
 # Copy xstartup to users home directory
 clear
 echo 'Creating xstartup file'
 cp xstartup ~/.vnc/xstartup
+chmod +x ~/.vnc/xstartup
 
 # Enable VNC service
 clear
 echo 'Enabling VNC service'
 sudo systemctl daemon-reload
-sudo systemctl enable vncserver@:1.service
-sudo systemctl start vncserver@:1.service
-sudo systemctl status vncserver@:1.service
+sudo systemctl enable vncserver@.service
+sudo systemctl start vncserver@.service
+sudo systemctl status vncserver@.service
 
 clear
 echo 'VNC service is installed and running'
